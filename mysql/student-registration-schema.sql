@@ -5,42 +5,42 @@ USE srs;
 -- Student Registration database schema
 -- -------------------------------------
 CREATE TABLE Student (
-	Id INT,
-	Name VARCHAR(255),
-	Address VARCHAR(255),
-	Status VARCHAR(255)
+	id INT,
+	name VARCHAR(255),
+	address VARCHAR(255),
+	status VARCHAR(255)
 );
 
 CREATE TABLE Professor (
-	Id INT,
-	Name VARCHAR(255),
-	DeptId VARCHAR(255)
+	id INT,
+	name VARCHAR(255),
+	deptId VARCHAR(255)
 );
 
 CREATE TABLE Course (
-	DeptId VARCHAR(255),
-	CrsCode VARCHAR(255),
-	CrsName VARCHAR(255),
-	Descr VARCHAR(255)
+	crsCode VARCHAR(255),
+	deptId VARCHAR(255),
+	crsName VARCHAR(255),
+	descr VARCHAR(255)
 );
 
 CREATE TABLE Teaching (
-	ProfId INT,
-	CrsCode VARCHAR(255),
-	Semester VARCHAR(255)
+	crsCode VARCHAR(255),
+	semester VARCHAR(255),
+	profId INT
 );
 
 CREATE TABLE Transcript (
-	StudId INT,
-	CrsCode VARCHAR(255),
-	Semester VARCHAR(255),
-	Grade VARCHAR(255)
+	studId INT,
+	crsCode VARCHAR(255),
+	semester VARCHAR(255),
+	grade VARCHAR(255)
 );
 
 
 -- Data Population
 -- -------------------------------------
-INSERT INTO Student (Id, Name, Address, Status)
+INSERT INTO Student (id, name, address, status)
 	VALUES (111111111, 'John Doe', '123 Main St.', 'Freshman'),
 	(666666666, 'Joseph Public', '666 Hollow Rd.', 'Sophomore'),
 	(111223344, 'Mary Smith', '1 Lake St.', 'Freshman'),
@@ -48,7 +48,7 @@ INSERT INTO Student (Id, Name, Address, Status)
 	(023456789, 'Homer Simpson', 'Fox 5 TV', 'Senior'),
 	(123454321, 'Joe Blow', '6 Yard Ct.', 'Junior');
 
-INSERT INTO Professor (Id, Name, DeptId)
+INSERT INTO Professor (id, name, deptId)
 	VALUES (101202303, 'John Smyth', 'CS'),
 	(783432188, 'Adrian Jones', 'MGT'),
 	(121232343, 'David Jones', 'EE'),
@@ -57,14 +57,14 @@ INSERT INTO Professor (Id, Name, DeptId)
 	(009406321, 'Jacob Taylor', 'MGT'),
 	(900120450, 'Ann White', 'MAT');
 
-INSERT INTO Course (DeptId, CrsCode, CrsName, Descr)
+INSERT INTO Course (deptId, crsCode, crsName, descr)
 	VALUES ('CS', 'CS305', 'Database Systems', 'On the road to high-paying job'),
 	('CS', 'CS315', 'Transaction Processing', 'Recover from your worst crashes'),
 	('MGT', 'MGT123', 'Market Analysis', 'Get rich quick'),
 	('EE', 'EE101', 'Electronic Circuits', 'Build your own computer'),
 	('MAT', 'MAT123', 'Algebra', 'The world where 2 * 2 != 4');
 
-INSERT INTO Teaching (ProfId, CrsCode, Semester)
+INSERT INTO Teaching (profId, crsCode, semester)
 	VALUES (009406321, 'MGT123', 'F1994'),
 	(121232343, 'EE101', 'S1991'),
 	(555666777, 'CS305', 'F1995'),
@@ -75,7 +75,7 @@ INSERT INTO Teaching (ProfId, CrsCode, Semester)
 	(900120450, 'MAT123', 'F1997'),
 	(783432188, 'MGT123', 'F1997');
 
-INSERT INTO Transcript (StudId, CrsCode, Semester, Grade)
+INSERT INTO Transcript (studId, crsCode, semester, grade)
 	VALUES (666666666, 'MGT123', 'F1994', 'A'),
 	(666666666, 'EE101', 'S1991', 'B'),
 	(666666666, 'MAT123', 'F1997', 'B'),
