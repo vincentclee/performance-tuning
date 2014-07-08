@@ -1,0 +1,6 @@
+SELECT name 
+FROM student NATURAL JOIN 
+(SELECT * FROM (SELECT * FROM 
+(SELECT * FROM professor NATURAL JOIN teaching WHERE professor.id = v5 and teaching.crcCode= professor.crsCode)alias1 
+ NATURAL JOIN transcript WHERE alias1.crsCode=transcript.csrCode))
+  WHERE alias2.id=Student.id
