@@ -1,0 +1,3 @@
+Select name
+from Student
+where Student.name=v1
