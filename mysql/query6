@@ -1,0 +1,6 @@
+select name 
+from student natural join
+( select * from transcript natural join 
+(select * from teaching natural join ( select * from course where dept.id=v8)alias1 where alias1.crsCode=teaching.crsCode )alias2
+ where transcript.crsCode= alias2.crsCode)alias3
+where student.id=alias3.id
