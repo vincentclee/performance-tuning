@@ -90,6 +90,14 @@ INSERT INTO Transcript (studId, crsCode, semester, grade)
 	(111111111, 'MAT123', 'F1997', 'B'),
 	(111111111, 'MGT123', 'F1997', 'B');
 
+
+SELECT COUNT(*) FROM Student;
+SELECT COUNT(*) FROM Professor;
+SELECT COUNT(*) FROM Course;
+SELECT COUNT(*) FROM Teaching;
+SELECT COUNT(*) FROM Transcript;
+
+
 -- -------------------------------------
 -- WARNING
 -- -------------------------------------

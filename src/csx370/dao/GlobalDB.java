@@ -1,14 +1,13 @@
 package csx370.dao;
 
-/**
- * Data Access Object
- */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.UUID;
 
+/**
+ * Data Access Object
+ */
 public class GlobalDB {
 	//Student
 	public PreparedStatement insert_student;
@@ -27,16 +26,35 @@ public class GlobalDB {
 	
 	private Connection conn;
 	private UUID uuid;
+	private Database db;
 	
-	public GlobalDB() {}
+	/**
+	 * Database Constructor
+	 * @param db the database to use (MySQL, PostgreSQL)
+	 */
+	public GlobalDB(Database db) {
+		this.db = db;
+	}
 	
+	/**
+	 * Open the Database Connection
+	 */
 	public void openDBconnection() {
 		try {
 			//Connect to database
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/srs", "root", "");
+			switch (db) {
+				case MySQL:
+					Class.forName("com.mysql.jdbc.Driver").newInstance();
+					conn = DriverManager.getConnection("jdbc:mysql://localhost/srs", "root", "");
+					break;
+				case PostgreSQL:
+					Class.forName("org.postgresql.Driver").newInstance();
+					conn = DriverManager.getConnection("jdbc:postgresql://localhost/srs", "postgres", "");
+					break;
+			}
+			
 			uuid = UUID.randomUUID();
-			System.out.println("<MySQL " + uuid.toString().substring(0, 8) + " Connected>");
+			System.out.println("<" + db + " " + uuid.toString().substring(0, 8) + " Connected>");
 			
 			//Prepared statements used to query database
 			
@@ -59,11 +77,14 @@ public class GlobalDB {
 		}
 	}
 	
+	/**
+	 * Close the Database Connection
+	 */
 	public void closeDBconnection() {
 		try {
 			conn.close();
-			System.out.println("<MySQL " + uuid.toString().substring(0, 8) + " Disconnected>");
-		} catch(Exception e) {
+			System.out.println("<" + db + " " + uuid.toString().substring(0, 8) + " Disconnected>");
+		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
 	}
