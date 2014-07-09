@@ -1,0 +1,6 @@
+Select Student.name
+from Student, Transcript, Teaching, Professor
+where Transcript.crsCode= Teaching.crsCode 
+AND Student.id= Transcript.stdId
+AND Teaching.profID= Professor.ID
+AND Professor.name= v5;
