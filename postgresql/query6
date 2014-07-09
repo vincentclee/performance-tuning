@@ -1,0 +1,5 @@
+Select Student.name
+from Student, Transcript, Course
+where Transcript.stdId = Student.id 
+AND ALL Transcript.crsCode=Course.crsCode 
+AND Course.deptId= v8;
