@@ -1,4 +1,5 @@
-SELECT name FROM (SELECT student.id 
-FROM (SELECT * FROM transcript NATURAL JOIN course WHERE dept.id = v6 and dept.id!=v7)alias1 
-NATURAL JOIN transcript)alias2  NATURAL JOIN student
-WHERE alias2.id=student.id
+
+Select student.name
+From student,transcript
+where ( select student.id from transcript where 
+(select crsCode from professor, teaching where professor.id=873242 and teaching.profId=professor.id))
