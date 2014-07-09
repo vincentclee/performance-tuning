@@ -1,0 +1,3 @@
+Select Student.name
+from Student, Transcript
+Where Student.id=Transcript.StdId AND Transcript.crsCode=v4;
