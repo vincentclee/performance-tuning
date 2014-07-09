@@ -1,3 +1,1 @@
-Select name
-from Student natural join transcript  
-where crsCode IN (select crsCode from transcript where crsCode=v4)
+Select name from Student natural join transcript  where crsCode IN (select crsCode from transcript where crsCode=121601)
