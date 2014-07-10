@@ -101,8 +101,10 @@ SELECT COUNT(*) FROM Transcript;
 -- -------------------------------------
 -- WARNING
 -- -------------------------------------
+/*
 TRUNCATE TABLE Student;
 TRUNCATE TABLE Professor;
 TRUNCATE TABLE Course;
 TRUNCATE TABLE Teaching;
 TRUNCATE TABLE Transcript;
+*/

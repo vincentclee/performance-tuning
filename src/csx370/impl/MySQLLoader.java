@@ -11,7 +11,8 @@ public class MySQLLoader {
 	 * @param args 
 	 */
 	public static void main(String[] args) {
-		SQLLoader loader = new SQLLoader(Database.MySQL, 100);
-		loader.dataToSQL();
+		SQLLoader loader = new SQLLoader(10);
+		loader.generate();
+		loader.dataToSQL(Database.MySQL);
 	}
 }

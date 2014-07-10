@@ -11,7 +11,8 @@ public class PostgreSQLLoader {
 	 * @param args 
 	 */
 	public static void main(String[] args) {
-		SQLLoader loader = new SQLLoader(Database.PostgreSQL, 10);
-		loader.dataToSQL();
+		SQLLoader loader = new SQLLoader(10);
+		loader.generate();
+		loader.dataToSQL(Database.PostgreSQL);
 	}
 }

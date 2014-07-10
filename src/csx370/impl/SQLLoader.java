@@ -9,63 +9,71 @@ import csx370.dao.GlobalDB;
 public class SQLLoader {
 	private int NUM_TUPLES = 10;
 	private GlobalDB global;
+	@SuppressWarnings("rawtypes")
+	private Comparable[][][] resultTest;
 	
 	/**
 	 * SQL Loader Constructor
+	 * @param tuples # of tuples per table
 	 */
-	public SQLLoader(Database db, int tuples) {
-		global = new GlobalDB(db);
+	public SQLLoader(int tuples) {
 		this.NUM_TUPLES = tuples;
 	}
 	
+	/**
+	 * Generates the Random Data
+	 */
+	public void generate() {
+		// Generate Data for those tuples
+		TupleGenerator test = new TupleGeneratorImpl();
+		
+		// Schemas
+		test.addRelSchema("Student",
+				"id name address status",
+				"Integer String String String",
+				"id",
+				null);
+		test.addRelSchema("Professor",
+				"id name deptId",
+				"Integer String String",
+				"id",
+				null);
+		test.addRelSchema("Course",
+				"crsCode deptId crsName descr",
+				"String String String String",
+				"crsCode",
+				null);
+		test.addRelSchema("Teaching",
+				"crsCode semester profId",
+				"String String Integer",
+				"crsCode semester",
+				new String[][]{{"profId", "Professor", "id"},
+				{"crsCode", "Course", "crsCode"}});
+		test.addRelSchema("Transcript",
+				"studId crsCode semester grade",
+				"Integer String String String",
+				"studId crsCode semester",
+				new String [][] {{"studId", "Student", "id"},
+				{"crsCode", "Course", "crsCode"},
+				{"crsCode semester", "Teaching", "crsCode semester"}});
+		
+		// Tuple sizes
+		int[] tups = new int[] {NUM_TUPLES, NUM_TUPLES, NUM_TUPLES, NUM_TUPLES, NUM_TUPLES};
+		
+		// Generate random data
+		resultTest = test.generate(tups);
+	}
 	
 	/**
 	 * Loads data into the Database
+	 * @param db type of database
 	 */
-	@SuppressWarnings("rawtypes")
-	public void dataToSQL() {
+	public void dataToSQL(Database db) {
 		try {
+			global = new GlobalDB(db);			
+			
 			//Open DB connection
 			global.openDBconnection();
-			
-			// Generate Data for those tuples
-			TupleGenerator test = new TupleGeneratorImpl();
-			
-			// Schemas
-			test.addRelSchema("Student",
-					"id name address status",
-					"Integer String String String",
-					"id",
-					null);
-			test.addRelSchema("Professor",
-					"id name deptId",
-					"Integer String String",
-					"id",
-					null);
-			test.addRelSchema("Course",
-					"crsCode deptId crsName descr",
-					"String String String String",
-					"crsCode",
-					null);
-			test.addRelSchema("Teaching",
-					"crsCode semester profId",
-					"String String Integer",
-					"crsCode semester",
-					new String[][]{{"profId", "Professor", "id"},
-					{"crsCode", "Course", "crsCode"}});
-			test.addRelSchema("Transcript",
-					"studId crsCode semester grade",
-					"Integer String String String",
-					"studId crsCode semester",
-					new String [][] {{"studId", "Student", "id"},
-					{"crsCode", "Course", "crsCode"},
-					{"crsCode semester", "Teaching", "crsCode semester"}});
-			
-			// Tuple sizes
-			int[] tups = new int[] {NUM_TUPLES, NUM_TUPLES, NUM_TUPLES, NUM_TUPLES, NUM_TUPLES};
-			
-			// Generate random data
-			Comparable[][][] resultTest = test.generate(tups);
 			
 			// Student Tables
 			for (int i = 0; i < resultTest[0].length; i++) {

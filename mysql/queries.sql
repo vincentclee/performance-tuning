@@ -13,8 +13,8 @@ SET @v2 = 100000;
 SET @v3 = 200000;
 SET @v4 = 'crsCode502260';
 SET @v5 = 'name21039';
-SET @v6 = 'deptId86002';
-SET @v7 = 'deptId909941';
+SET @v6 = 'mgt';
+SET @v7 = 'ee';
 SET @v8 = 'cs';
 
 -- 1. List the name of the student with id equal to v1 (id).
