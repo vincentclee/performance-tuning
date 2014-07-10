@@ -1,5 +1,4 @@
-
-Select student.name
-From student,transcript
-where ( select student.id from transcript where 
-(select crsCode from professor, teaching where professor.id=873242 and teaching.profId=professor.id))
+SELECT student.name
+FROM student,transcript
+WHERE ( SELECT student.id FROM transcript WHERE 
+(SELECT crsCode FROM professor, teaching WHERE professor.id=873242 AND teaching.profId=professor.id))

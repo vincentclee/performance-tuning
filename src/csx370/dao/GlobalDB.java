@@ -45,7 +45,7 @@ public class GlobalDB {
 			switch (db) {
 				case MySQL:
 					Class.forName("com.mysql.jdbc.Driver").newInstance();
-					conn = DriverManager.getConnection("jdbc:mysql://localhost/srs", "root", "");
+					conn = DriverManager.getConnection("jdbc:mysql://localhost/srs", "root", "platypus1");
 					break;
 				case PostgreSQL:
 					Class.forName("org.postgresql.Driver").newInstance();

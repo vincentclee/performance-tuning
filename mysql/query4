@@ -1,3 +1,3 @@
 SELECT student.name
-from student, transcript, course
-where course.deptId=235325 and course.deptId!=23532
+FROM student, transcript, course
+WHERE course.deptId=235325 AND course.deptId!=23532
