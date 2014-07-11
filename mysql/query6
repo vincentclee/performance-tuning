@@ -1,5 +1,0 @@
-SELECT student.name
-FROM student, transcript NATURAL JOIN ( SELECT teaching.crsCode
-		FROM teaching,course 
-		WHERE course.crsCode=teaching.crsCode AND course.deptId=323252) AS t1
-WHERE transcript.crsCode=t1.crsCode

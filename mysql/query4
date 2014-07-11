@@ -1,3 +1,0 @@
-SELECT student.name
-FROM student, transcript, course
-WHERE course.deptId=235325 AND course.deptId!=23532

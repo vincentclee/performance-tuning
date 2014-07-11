@@ -1,4 +1,0 @@
-SELECT student.name
-FROM student,transcript
-WHERE ( SELECT student.id FROM transcript WHERE 
-(SELECT crsCode FROM professor, teaching WHERE professor.id=873242 AND teaching.profId=professor.id))
