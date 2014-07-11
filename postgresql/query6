@@ -1,5 +1,5 @@
 SELECT Student.name
 FROM Student, Transcript, Course
-WHERE Transcript.stdId=Student.id 
+WHERE Transcript.studId=Student.id 
 AND ALL Transcript.crsCode=Course.crsCode 
 AND Course.deptId=v8;

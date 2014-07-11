@@ -1,6 +1,6 @@
 SELECT Student.name
 FROM Student, Transcript, Teaching, Professor
 WHERE Transcript.crsCode=Teaching.crsCode 
-AND Student.id=Transcript.stdId
+AND Student.id=Transcript.studId
 AND Teaching.profID=Professor.ID
 AND Professor.name=v5;
