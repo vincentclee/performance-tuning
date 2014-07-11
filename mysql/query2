@@ -1,3 +1,0 @@
-SELECT name
-FROM Student
-WHERE Student.id BETWEEN 3000 AND 5000

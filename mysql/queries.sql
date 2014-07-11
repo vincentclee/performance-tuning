@@ -8,14 +8,14 @@ SELECT * FROM Transcript LIMIT 20;
 
 -- Queries for Project 4
 -- -------------------------------------
-SET @v1 = 935912;
-SET @v2 = 100000;
-SET @v3 = 200000;
-SET @v4 = 'crsCode502260';
-SET @v5 = 'name21039';
-SET @v6 = 'mgt';
-SET @v7 = 'ee';
-SET @v8 = 'cs';
+SET @v1 = 774861;
+SET @v2 = 396624;
+SET @v3 = 763176;
+SET @v4 = 'crsCode917489';
+SET @v5 = 'name10747';
+SET @v6 = 'deptId160435';
+SET @v7 = 'deptId78889';
+SET @v8 = 'deptId14420';
 
 -- 1. List the name of the student with id equal to v1 (id).
 SELECT name FROM Student WHERE id = @v1;

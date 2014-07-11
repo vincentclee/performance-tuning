@@ -1,3 +1,0 @@
-SELECT transcript.studId
-FROM transcript
-WHERE transcript.grade=92597
