@@ -8,7 +8,7 @@ import csx370.dao.Database;
 import csx370.impl.SQLLoader;
 
 /**
- * Load Data in to MySQL
+ * Load Data in to MySQL and PostgreSQL
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MySQL_and_PostgreSQLLoadTest {
