@@ -1,11 +1,5 @@
 USE srs;
 
-SELECT * FROM Student LIMIT 20;
-SELECT * FROM Professor LIMIT 20;
-SELECT * FROM Course LIMIT 20;
-SELECT * FROM Teaching LIMIT 20;
-SELECT * FROM Transcript LIMIT 20;
-
 -- Queries for Project 4
 -- -------------------------------------
 SET @v1 = 774861;
